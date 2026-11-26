@@ -1,0 +1,5 @@
+defect,granularity,injected,detected,true_positive,false_positive,false_negative,precision,recall
+D2 重复上报,event_id,9915,9915,9915,0,0,1.0,1.0
+D4 顺序倒挂,session_id,150,150,150,0,0,1.0,1.0
+D5 字段异常,row,4212,4212,4212,0,0,1.0,1.0
+D6 设备复用,device_id,580,580,580,0,0,1.0,1.0

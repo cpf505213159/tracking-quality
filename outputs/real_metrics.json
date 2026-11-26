@@ -1,0 +1,11 @@
+{
+  "events": 50000,
+  "visitors": 45423,
+  "by_event": {
+    "view": 48299,
+    "addtocart": 1314,
+    "transaction": 387
+  },
+  "view_to_cart": 0.0272,
+  "cart_to_transaction": 0.2945
+}

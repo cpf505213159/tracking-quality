@@ -1,0 +1,135 @@
+{
+  "data": {
+    "rows": 208217,
+    "users": 7883,
+    "sessions": 59999,
+    "days": 31,
+    "start": "2024-06-01 00:05:09",
+    "end": "2024-07-01 00:06:59"
+  },
+  "checks": [
+    {
+      "code": "R1",
+      "name": "完整性",
+      "status": "fail",
+      "metric": "加购/商详比",
+      "value": 0.0,
+      "affected_rows": 10302
+    },
+    {
+      "code": "R2",
+      "name": "唯一性",
+      "status": "fail",
+      "metric": "重复率",
+      "value": 0.0476,
+      "affected_rows": 9915
+    },
+    {
+      "code": "R3",
+      "name": "及时性",
+      "status": "fail",
+      "metric": "整点 p95 延迟",
+      "value": 7.7,
+      "affected_rows": 2903
+    },
+    {
+      "code": "R4",
+      "name": "一致性",
+      "status": "fail",
+      "metric": "倒挂会话占比",
+      "value": 0.03,
+      "affected_rows": 150
+    },
+    {
+      "code": "R5",
+      "name": "有效性",
+      "status": "fail",
+      "metric": "非法值占比",
+      "value": 0.0202,
+      "affected_rows": 4212
+    },
+    {
+      "code": "R6",
+      "name": "设备一致性",
+      "status": "fail",
+      "metric": "受影响会话占比",
+      "value": 0.0772,
+      "affected_rows": 16314
+    }
+  ],
+  "detection": [
+    {
+      "defect": "D2 重复上报",
+      "granularity": "event_id",
+      "injected": 9915,
+      "detected": 9915,
+      "true_positive": 9915,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "defect": "D4 顺序倒挂",
+      "granularity": "session_id",
+      "injected": 150,
+      "detected": 150,
+      "true_positive": 150,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "defect": "D5 字段异常",
+      "granularity": "row",
+      "injected": 4212,
+      "detected": 4212,
+      "true_positive": 4212,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "defect": "D6 设备复用",
+      "granularity": "device_id",
+      "injected": 580,
+      "detected": 580,
+      "true_positive": 580,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0
+    }
+  ],
+  "impact": {
+    "add_cart_rate": {
+      "observed": 0.24354105529662237,
+      "corrected": 0.3423672248115542,
+      "bias_pp": -9.882616951493182,
+      "missing_sessions": 3435,
+      "platform_detail": {
+        "platform": "android",
+        "pre_rate": 0.3498080614203455,
+        "observed_rate": 0.0,
+        "expected_rate": 0.3498080614203455,
+        "post_detail_sessions": 9821.0,
+        "observed_cart_sessions": 0.0,
+        "expected_cart_sessions": 3435.0,
+        "missing_cart_sessions": 3435.0,
+        "relative_bias": -1.0
+      }
+    },
+    "gmv": {
+      "observed": 615075.5495588286,
+      "corrected": 620248.1425696404,
+      "bias": 0.008409687256341059
+    },
+    "pv": {
+      "observed": 208217,
+      "dedup": 198302,
+      "bias": -0.049999495718651366
+    }
+  }
+}
